@@ -6,8 +6,7 @@
 </head>
 <body>
     <div id="app">
-<!--        <ticket></ticket>-->
-        <person-ticket nickname="เบสท์" firstname="พัชรินทร์" lastname="รัตนสุขสันต์"></person-ticket>
+
     </div>
 </body>
 <script src="{{asset('js/app.js')}}"></script>

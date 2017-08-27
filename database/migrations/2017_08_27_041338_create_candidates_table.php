@@ -20,6 +20,7 @@ class CreateCandidatesTable extends Migration
             $table->string('surname');
             $table->string('nickname');
             $table->integer('score')->unsigned();
+            $table->string('img_link');
             $table->timestamps();
         });
     }

@@ -2,17 +2,17 @@
     <div id="ticket">
         <div id="info">
             <h2>{{ nickname }}</h2>
-            <p>{{ firstname }} {{ lastname }}</p>
+            <p>{{ name }} {{ surname }}</p>
         </div>
         <div id="top">
-            <img src="img/profile.jpg" alt="profile">
+            <img :src="`img/${img_link}`" alt="profile">
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['nickname' ,'firstname', 'lastname']
+        props: ['id', 'nickname' ,'name', 'surname', 'img_link']
     }
 </script>
 
