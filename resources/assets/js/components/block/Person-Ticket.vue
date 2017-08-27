@@ -1,18 +1,18 @@
 <template>
     <div class="ticket col-xs-12 col-sm-6 col-md-3">
         <div class="info">
-            <h2>{{ nickname }}</h2>
-            <p>{{ name }} {{ surname }}</p>
+            <h2>{{ candidate.nickname }}</h2>
+            <p>{{ candidate.name }} {{ candidate.surname }}</p>
         </div>
         <div class="top">
-            <img :src="`img/${img_link}`" alt="profile">
+            <img :src="`img/${candidate.img_link}`" alt="profile">
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['id', 'nickname' ,'name', 'surname', 'img_link']
+        props: ['candidate']
     }
 </script>
 

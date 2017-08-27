@@ -10,14 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div v-for="candidate in candidates">
-                        <person-ticket
-                                :id="candidate.id"
-                                :nickname="candidate.nickname"
-                                :name="candidate.name"
-                                :surname="candidate.surname"
-                                :img_link="candidate.img_link"
-                        >
-                        </person-ticket>
+                        <person-ticket :candidate="candidate"></person-ticket>
                     </div>
                 </div>
                 <shooter></shooter>
