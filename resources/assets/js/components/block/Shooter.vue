@@ -21,6 +21,7 @@
 </script>
 <style lang="scss" scoped>
     #shooter {
+        cursor: pointer;
         position: fixed;
         display: block;
         bottom: 0;

@@ -1,9 +1,11 @@
 <template>
-    <div id="wrapper">
-        <div id="bg"></div>
-        <div class="container-fluid">
-            <logo></logo>
-            <span id="header-text">
+    <div id="wall">
+        <password></password>
+        <div id="wrapper">
+            <div id="bg"></div>
+            <div class="container-fluid">
+                <logo></logo>
+                <span id="header-text">
                 <h3>ร่วมโหวต IT AMBASSADOR ในดวงใจคุณ</h3>
                 <p>ชอบใคร รักใคร เทหัวใจให้หมดตัว</p>
             </span>
@@ -28,13 +30,15 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 <script>
     import Shooter from './block/Shooter.vue';
     import PersonTicket from './block/Person-Ticket.vue';
     import Logo from './block/Logo.vue';
+    import Password from './block/Password.vue';
     export default {
-        components: {Shooter, PersonTicket, Logo},
+        components: {Shooter, PersonTicket, Logo, Password},
         data () {
             return {
                 selectedFemale: {},
@@ -71,7 +75,7 @@
 </script>
 <style lang="scss" scoped>
     #bg {
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: 70vh;
         background: linear-gradient(200deg, #3dbbff, #a275ff);

@@ -1,5 +1,5 @@
 <template>
-    <div class="ticket col-xs-12 col-sm-6 col-md-3">
+    <div :class="className()">
         <div class="info">
             <h2>{{ candidate.nickname }}</h2>
             <p>{{ candidate.name }} {{ candidate.surname }}</p>
@@ -12,14 +12,36 @@
 
 <script>
     export default {
-        props: ['candidate', 'selected']
+        props: ['candidate', 'selected'],
+        methods: {
+          className () {
+              if (this.candidate.id === this.selected.id) {
+                  return [
+                      'ticket',
+                      'col-xs-12',
+                      'col-sm-6',
+                      'col-md-3',
+                      'choose',
+                  ]
+              } else {
+                  return [
+                      'ticket',
+                      'col-xs-12',
+                      'col-sm-6',
+                      'col-md-3',
+                  ]
+              }
+          }
+        },
     }
 </script>
 
 <style lang="scss" scoped>
     .ticket {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        max-width: 350px;
         height: 445px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         overflow: hidden;
         border-radius: 7px;
         position: relative;
@@ -50,5 +72,11 @@
             margin: 0;
             font-weight: bold;
         }
+    }
+    .choose {
+        transform: scale(0.99);
+        background: linear-gradient(-45deg, rgba(255, 120, 144, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%);
+        color: white;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 </style>
