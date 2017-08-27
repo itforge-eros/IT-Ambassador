@@ -24,7 +24,7 @@
                         </person-ticket>
                     </div>
                 </div>
-                <shooter @click.native="handleSend"></shooter>
+                <shooter @click.native="handleSend" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                 selectedFemale: {},
                 selectedMale: {},
                 candidates: [],
-                code: '',
+                code: 'R9VGH',
             }
         },
         mounted () {
@@ -60,8 +60,9 @@
                     console.log('not xxx')
                 } else {
                     axios.post('/vote', {
+                        code: this.code,
                         male: this.selectedMale,
-                        female: this.selectedFemale
+                        female: this.selectedFemale,
                     }).then(res => console.log(res.data))
                 }
             },
