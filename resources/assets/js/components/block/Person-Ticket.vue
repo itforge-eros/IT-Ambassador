@@ -1,10 +1,10 @@
 <template>
-    <div id="ticket">
-        <div id="info">
+    <div class="ticket col-xs-12 col-sm-6 col-md-3">
+        <div class="info">
             <h2>{{ nickname }}</h2>
             <p>{{ name }} {{ surname }}</p>
         </div>
-        <div id="top">
+        <div class="top">
             <img :src="`img/${img_link}`" alt="profile">
         </div>
     </div>
@@ -17,14 +17,15 @@
 </script>
 
 <style lang="scss" scoped>
-    #ticket {
-        width: 322px;
+    .ticket {
         height: 445px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         overflow: hidden;
         border-radius: 7px;
         position: relative;
-        #top {
+        transform: scale(0.95);
+        background: #fff;
+        .top {
             width: 100%;
             height: 73%;
             background: linear-gradient(125deg, rgb(2, 109, 255), rgb(107, 204, 255));
@@ -36,17 +37,18 @@
             }
         }
     }
-    #info {
+    .info {
         position: absolute;
         bottom: 0;
-        margin: 0 0 0.5rem 1rem;
+        margin: 0 0 1rem 0;
         font-family: cloud;
-        font-size: 1.2rem;
         p {
             margin: 0;
+            font-size: 1.7rem!important;
         }
         h2 {
             margin: 0;
+            font-weight: bold;
         }
     }
 </style>

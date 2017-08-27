@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="stylesheet" href="css/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>IT Ambassador | 2017</title>
 </head>
@@ -32,16 +34,6 @@
         font-family: cloud;
         font-weight: bold;
         src: url("font/Cloud-Bold.otf");
-    }
-    html {
-        height: 100%;
-    }
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100%;
-        margin: 0;
     }
 </style>
 </html>
