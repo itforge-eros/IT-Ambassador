@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class CandidateController extends Controller
 {
-    public function getAllCandidate() {
+    public function getAllCandidates() {
         return Candidate::all();
     }
 }

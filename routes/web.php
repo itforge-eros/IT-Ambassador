@@ -19,3 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@genCode')->name('home');
+
+Route::get('/candidates', 'CandidateController@getAllCandidates');
