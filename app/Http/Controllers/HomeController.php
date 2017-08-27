@@ -32,7 +32,7 @@ class HomeController extends Controller
         $result = array();
         foreach (range(1, $numbers) as $i) {
             $code = new Code;
-            $generated = strtoupper(substr(sha1(microtime()),rand(0,26),5));
+            $generated = strtoupper(str_random(5));
             array_push($result, $generated);
             $code->code = $generated;
             $code->save();
