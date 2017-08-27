@@ -10,10 +10,21 @@
             <div class="container">
                 <div class="row">
                     <div v-for="candidate in candidates">
-                        <person-ticket :candidate="candidate"></person-ticket>
+                        <person-ticket
+                                v-if="candidate.title === 'นาย'"
+                                :candidate="candidate"
+                                @click.native="handleSelected(candidate)"
+                                :selected="selectedMale">
+                        </person-ticket>
+                        <person-ticket
+                                v-else
+                                :candidate="candidate"
+                                @click.native="handleSelected(candidate)"
+                                :selected="selectedFemale">
+                        </person-ticket>
                     </div>
                 </div>
-                <shooter></shooter>
+                <shooter @click.native="handleSend"></shooter>
             </div>
         </div>
     </div>
@@ -26,13 +37,35 @@
         components: {Shooter, PersonTicket, Logo},
         data () {
             return {
+                selectedFemale: {},
+                selectedMale: {},
                 candidates: [],
                 code: '',
             }
         },
         mounted () {
             axios.get('/candidates').then(res => this.candidates = res.data)
-        }
+        },
+        methods: {
+            handleSelected (candidate) {
+                if (candidate.title === 'นาย') {
+                    this.selectedMale = candidate
+                } else {
+                    this.selectedFemale = candidate
+                }
+            },
+            handleSend () {
+                if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
+                    // TODO push modal when this conditions occur
+                    console.log('not xxx')
+                } else {
+                    axios.post('/vote', {
+                        male: this.selectedMale,
+                        female: this.selectedFemale
+                    }).then(res => console.log(res.data))
+                }
+            },
+        },
     }
 </script>
 <style lang="scss" scoped>
