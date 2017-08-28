@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+
+  caddy:
+    image: stevepacker/caddy-php7
+    container_name: ambassador
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ".:/srv"
