@@ -17,7 +17,7 @@
                             :perPage="1"
                             :scrollPerPage="true"
                             :paginationSize="15"
-                            :minSwipeDistance="50"
+                            :minSwipeDistance="80"
                             :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
                         <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
                             <person-ticket
@@ -34,7 +34,7 @@
                             :perPage="1"
                             :scrollPerPage="true"
                             :paginationSize="15"
-                            :minSwipeDistance="50"
+                            :minSwipeDistance="80"
                             :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">\
                         <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
                             <person-ticket
