@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+
+  caddy:
+    image: abiosoft/caddy:php
+    container_name: caddy
+    ports:
+      - "9090:2015"
+    volumes:
+      - "./Caddyfile:/etc/Caddyfile"
+      - "$HOME/.caddy:/root/.caddy"
+      - ".:/srv"
