@@ -13,7 +13,11 @@
                 <div class="row">
 
                     <!-- Male -->
-                    <carousel :perPage="1" :scrollPerPage="true" :perPageCustom="[[420, 1], [768, 2], [1024, 3]]">
+                    <carousel
+                            :perPage="1"
+                            :scrollPerPage="true"
+                            :paginationSize="15"
+                            :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
                         <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
                             <person-ticket
                                     :candidate="candidate"
@@ -22,10 +26,14 @@
                             </person-ticket>
                         </slide>
                     </carousel>
-
-
+                </div>
+                <div class="row">
                     <!-- Female -->
-                    <carousel :perPage="1" :scrollPerPage="true" :perPageCustom="[[420, 1], [768, 2], [1024, 3]]">
+                    <carousel
+                            :perPage="1"
+                            :scrollPerPage="true"
+                            :paginationSize="15"
+                            :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
                         <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
                             <person-ticket
                                     :candidate="candidate"
@@ -98,6 +106,10 @@
         margin-top: 10px;
         color: #fff;
         text-align: center;
+        font-family: cloud;
+        p {
+            font-size: 18px;
+        }
     }
     .candidates {
         display: flex;
