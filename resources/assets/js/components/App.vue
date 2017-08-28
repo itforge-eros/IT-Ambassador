@@ -13,16 +13,12 @@
                 <div class="row">
 
                     <!-- Male -->
-<<<<<<< Updated upstream
-                    <carousel :perPage="1" :scrollPerPage="true" :perPageCustom="[[420, 1], [768, 2], [1024, 3]]">
-=======
                     <carousel
                             :perPage="1"
                             :scrollPerPage="true"
                             :paginationSize="15"
                             :minSwipeDistance="50"
                             :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
->>>>>>> Stashed changes
                         <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
                             <person-ticket
                                     :candidate="candidate"
@@ -34,16 +30,12 @@
 
 
                     <!-- Female -->
-<<<<<<< Updated upstream
-                    <carousel :perPage="1" :scrollPerPage="true" :perPageCustom="[[420, 1], [768, 2], [1024, 3]]">
-=======
                     <carousel
                             :perPage="1"
                             :scrollPerPage="true"
                             :paginationSize="15"
                             :minSwipeDistance="50"
-                            :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
->>>>>>> Stashed changes
+                            :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">\
                         <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
                             <person-ticket
                                     :candidate="candidate"
