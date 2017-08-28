@@ -44,11 +44,11 @@
                 selectedFemale: {},
                 selectedMale: {},
                 candidates: [],
-                code: 'R9VGH',
+                code: '720AE',
             }
         },
         mounted () {
-            axios.get('/candidates').then(res => this.candidates = res.data)
+            axios.get('/candidates').then(res => this.candidates = res.data).catch(err => console.log(err))
         },
         methods: {
             handleSelected (candidate) {
@@ -67,7 +67,7 @@
                         code: this.code,
                         male: this.selectedMale,
                         female: this.selectedFemale,
-                    }).then(res => console.log(res.data))
+                    }).then(res => console.log(res.data)).catch(err => console.log(err.response))
                 }
             },
         },
