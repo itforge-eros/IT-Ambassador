@@ -3,11 +3,10 @@ version: "2"
 services:
 
   caddy:
-    image: abiosoft/caddy:php
-    container_name: caddy
+    image: stevepacker/caddy-php7
+    container_name: ambassador
     ports:
-      - "9090:2015"
+      - "80:80"
+      - "443:443"
     volumes:
-      - "./Caddyfile:/etc/Caddyfile"
-      - "$HOME/.caddy:/root/.caddy"
       - ".:/srv"
