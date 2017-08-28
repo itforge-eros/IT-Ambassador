@@ -11,6 +11,7 @@
             </span>
             <div class="container">
                 <div class="row">
+                    <!-- Male -->
                     <div v-for="candidate in candidates">
                         <person-ticket
                                 v-if="candidate.title === 'นาย'"
@@ -18,8 +19,11 @@
                                 @click.native="handleSelected(candidate)"
                                 :selected="selectedMale">
                         </person-ticket>
+                    </div>
+                    <div v-for="candidate in candidates">
+                        <!-- Female -->
                         <person-ticket
-                                v-else
+                                v-if="candidate.title === 'นางสาว'"
                                 :candidate="candidate"
                                 @click.native="handleSelected(candidate)"
                                 :selected="selectedFemale">
