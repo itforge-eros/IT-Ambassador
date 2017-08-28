@@ -73,8 +73,16 @@
         methods: {
             handleSelected (candidate) {
                 if (candidate.title === 'นาย') {
+                    if (this.selectedMale === candidate) {
+                        this.selectedMale = {}
+                        return
+                    }
                     this.selectedMale = candidate
                 } else {
+                    if (this.selectedFemale === candidate) {
+                        this.selectedFemale = {}
+                        return
+                    }
                     this.selectedFemale = candidate
                 }
             },
