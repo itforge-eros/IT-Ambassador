@@ -11,6 +11,7 @@
             </span>
             <div class="container">
                 <div class="row">
+
                     <!-- Male -->
                     <div v-for="candidate in candidates">
                         <person-ticket
@@ -20,8 +21,9 @@
                                 :selected="selectedMale">
                         </person-ticket>
                     </div>
+
+                    <!-- Female -->
                     <div v-for="candidate in candidates">
-                        <!-- Female -->
                         <person-ticket
                                 v-if="candidate.title === 'นางสาว'"
                                 :candidate="candidate"
@@ -92,5 +94,9 @@
         margin-top: 10px;
         color: #fff;
         text-align: center;
+    }
+    .candidates {
+        display: flex;
+        overflow-x: auto;
     }
 </style>
