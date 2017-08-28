@@ -6,45 +6,44 @@
             <div class="container-fluid">
                 <logo></logo>
                 <span id="header-text">
-                <h3>ร่วมโหวต IT AMBASSADOR ในดวงใจคุณ</h3>
-                <p>ชอบใคร รักใคร เทหัวใจให้หมดตัว</p>
-            </span>
-            <div class="container">
-                <div class="row">
-
+                    <h3>ร่วมโหวต IT AMBASSADOR ในดวงใจคุณ</h3>
+                    <p>ชอบใคร รักใคร เทหัวใจให้หมดตัว</p>
+                </span>
+                <div class="container">
                     <!-- Male -->
-                    <carousel
-                            :perPage="1"
-                            :scrollPerPage="true"
-                            :paginationSize="15"
-                            :minSwipeDistance="80"
-                            :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
-                        <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
-                            <person-ticket
-                                    :candidate="candidate"
-                                    @click.native="handleSelected(candidate)"
-                                    :selected="selectedMale">
-                            </person-ticket>
-                        </slide>
-                    </carousel>
-
-
+                    <div class="row">
+                        <carousel
+                                :perPage="1"
+                                :scrollPerPage="true"
+                                :paginationSize="15"
+                                :minSwipeDistance="80"
+                                :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
+                            <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
+                                <person-ticket
+                                        :candidate="candidate"
+                                        @click.native="handleSelected(candidate)"
+                                        :selected="selectedMale">
+                                </person-ticket>
+                            </slide>
+                        </carousel>
+                    </div>
                     <!-- Female -->
-                    <carousel
-                            :perPage="1"
-                            :scrollPerPage="true"
-                            :paginationSize="15"
-                            :minSwipeDistance="80"
-                            :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">\
-                        <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
-                            <person-ticket
-                                    :candidate="candidate"
-                                    @click.native="handleSelected(candidate)"
-                                    :selected="selectedFemale">
-                            </person-ticket>
-                        </slide>
-                    </carousel>
-                </div>
+                    <div class="row">
+                        <carousel
+                                :perPage="1"
+                                :scrollPerPage="true"
+                                :paginationSize="15"
+                                :minSwipeDistance="80"
+                                :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
+                            <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
+                                <person-ticket
+                                        :candidate="candidate"
+                                        @click.native="handleSelected(candidate)"
+                                        :selected="selectedFemale">
+                                </person-ticket>
+                            </slide>
+                        </carousel>
+                    </div>
                 <shooter @click.native="handleSend" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
         </div>
@@ -95,9 +94,9 @@
 </script>
 <style lang="scss" scoped>
     #bg {
-        position: fixed;
+        position: absolute;
         width: 100%;
-        height: 70vh;
+        height: 50vh;
         background: linear-gradient(200deg, #3dbbff, #a275ff);
         z-index: -1;
     }
@@ -108,6 +107,8 @@
         margin-top: 10px;
         color: #fff;
         text-align: center;
+        font-family: cloud;
+        font-size: 130%;
     }
     .candidates {
         display: flex;
