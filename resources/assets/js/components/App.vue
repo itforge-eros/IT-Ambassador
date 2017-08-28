@@ -13,24 +13,27 @@
                 <div class="row">
 
                     <!-- Male -->
-                    <div v-for="candidate in candidates">
-                        <person-ticket
-                                v-if="candidate.title === 'นาย'"
-                                :candidate="candidate"
-                                @click.native="handleSelected(candidate)"
-                                :selected="selectedMale">
-                        </person-ticket>
-                    </div>
+                    <carousel :perPage="1" :scrollPerPage="true" :perPageCustom="[[420, 1], [768, 2], [1024, 3]]">
+                        <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
+                            <person-ticket
+                                    :candidate="candidate"
+                                    @click.native="handleSelected(candidate)"
+                                    :selected="selectedMale">
+                            </person-ticket>
+                        </slide>
+                    </carousel>
+
 
                     <!-- Female -->
-                    <div v-for="candidate in candidates">
-                        <person-ticket
-                                v-if="candidate.title === 'นางสาว'"
-                                :candidate="candidate"
-                                @click.native="handleSelected(candidate)"
-                                :selected="selectedFemale">
-                        </person-ticket>
-                    </div>
+                    <carousel :perPage="1" :scrollPerPage="true" :perPageCustom="[[420, 1], [768, 2], [1024, 3]]">
+                        <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
+                            <person-ticket
+                                    :candidate="candidate"
+                                    @click.native="handleSelected(candidate)"
+                                    :selected="selectedFemale">
+                            </person-ticket>
+                        </slide>
+                    </carousel>
                 </div>
                 <shooter @click.native="handleSend" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
@@ -39,12 +42,13 @@
     </div>
 </template>
 <script>
-    import Shooter from './block/Shooter.vue';
-    import PersonTicket from './block/Person-Ticket.vue';
-    import Logo from './block/Logo.vue';
-    import Password from './block/Password.vue';
+    import Shooter from './block/Shooter.vue'
+    import PersonTicket from './block/Person-Ticket.vue'
+    import Logo from './block/Logo.vue'
+    import Password from './block/Password.vue'
+    import { Carousel, Slide } from 'vue-carousel'
     export default {
-        components: {Shooter, PersonTicket, Logo, Password},
+        components: {Shooter, PersonTicket, Logo, Password, Carousel, Slide},
         data () {
             return {
                 selectedFemale: {},

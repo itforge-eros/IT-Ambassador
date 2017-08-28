@@ -17,5 +17,10 @@
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "owl.carousel": "^2.2.0",
+    "vue-awesome-swiper": "^2.6.2",
+    "vue-carousel": "^0.6.5"
   }
 }

@@ -18,17 +18,11 @@
               if (this.candidate.id === this.selected.id) {
                   return [
                       'ticket',
-                      'col-xs-12',
-                      'col-sm-6',
-                      'col-md-3',
                       'choose',
                   ]
               } else {
                   return [
                       'ticket',
-                      'col-xs-12',
-                      'col-sm-6',
-                      'col-md-3',
                   ]
               }
           }
@@ -37,16 +31,25 @@
 </script>
 
 <style lang="scss" scoped>
+
+    @media screen and (max-width: 320px) {
+        .ticket {
+            max-width: 290px!important;
+        }
+    }
+
     .ticket {
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        max-width: 350px;
+        max-width: 320px;
         height: 445px;
         overflow: hidden;
         border-radius: 7px;
         position: relative;
         transform: scale(0.95);
         background: #fff;
+        padding: 15px;
+        margin: 0 auto;
         .top {
             width: 100%;
             height: 73%;
