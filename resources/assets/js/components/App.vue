@@ -116,13 +116,7 @@
         color: #fff;
         text-align: center;
         font-family: cloud;
-<<<<<<< HEAD
-        p {
-            font-size: 18px;
-        }
-=======
         font-size: 130%;
->>>>>>> master
     }
     .candidates {
         display: flex;
