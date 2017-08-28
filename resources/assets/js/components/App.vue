@@ -124,7 +124,9 @@
         color: #fff;
         text-align: center;
         font-family: cloud;
-        font-size: 130%;
+        p {
+            font-size: 18px;
+        }
     }
     .candidates {
         display: flex;
