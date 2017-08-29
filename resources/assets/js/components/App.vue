@@ -1,10 +1,14 @@
 <template>
     <div id="wall">
-        <password></password>
+        <passcode></passcode>
         <div id="wrapper">
             <div id="bg"></div>
             <div class="container-fluid">
-                <logo></logo>
+                <div class="row">
+                    <div id="logo" class="col-xs-12">
+                        <img src="img/logo.png" alt="logo">
+                    </div>
+                </div>
                 <span id="header-text">
                     <h3>ร่วมโหวต IT AMBASSADOR ในดวงใจคุณ</h3>
                     <p>ชอบใคร รักใคร เทหัวใจให้หมดตัว</p>
@@ -44,8 +48,13 @@
                             </slide>
                         </carousel>
                     </div>
-                <shooter @click.native="handleSend" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
+                <shooter data-toggle="modal" data-target="#myModal" @click.native="handleSend" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
+                <div class="row">
+                    <div id="logo-itforge" class="col-xs-12">
+                        <img src="img/itforge.png" alt="itforge logo">
+                    </div>
+                </div>
         </div>
     </div>
     </div>
@@ -53,11 +62,10 @@
 <script>
     import Shooter from './block/Shooter.vue'
     import PersonTicket from './block/Person-Ticket.vue'
-    import Logo from './block/Logo.vue'
-    import Password from './block/Password.vue'
+    import Passcode from './block/Passcode.vue'
     import { Carousel, Slide } from 'vue-carousel'
     export default {
-        components: {Shooter, PersonTicket, Logo, Password, Carousel, Slide},
+        components: {Shooter, PersonTicket, Passcode, Carousel, Slide},
         data () {
             return {
                 selectedFemale: {},
@@ -121,5 +129,17 @@
     .candidates {
         display: flex;
         overflow-x: auto;
+    }
+    #logo {
+        text-align: center;
+        img {
+            width: 225px;
+        }
+    }
+    #logo-itforge {
+        text-align: center;
+        img {
+            width: 230px;
+        }
     }
 </style>

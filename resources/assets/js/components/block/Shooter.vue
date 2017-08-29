@@ -29,6 +29,7 @@
         width: 100%;
         background: gray;
         background: linear-gradient(200deg, #3dbbff, #a275ff);
+        z-index: 4;
         p {
             font-size: 1.9rem;
             font-family: cloud;
