@@ -1,6 +1,7 @@
 <template>
     <div id="wall">
-        <div id="wrapper">
+        <passcode v-if="showModal" @close="showModal = false"></passcode>
+        <div :class="{'getblur': showModal}" id="wrapper">
             <div id="bg"></div>
             <div class="container-fluid">
                 <div class="row">
@@ -47,13 +48,6 @@
                             </slide>
                         </carousel>
                     </div>
-                    <!-- use the modal component, pass in the prop -->
-                    <passcode v-if="showModal" @close="showModal = false">
-                        <!--
-                          you can use custom content here to overwrite
-                          default content
-                        -->
-                    </passcode>
                 <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
                 <div class="row">
@@ -136,6 +130,8 @@
     }
     #wrapper {
         margin-bottom: 56px;
+        transition: 0.3s ease;
+        filter: blur(0px);
     }
     #header-text {
         margin-top: 10px;
@@ -165,5 +161,8 @@
     .btn-disabled {
         cursor: not-allowed!important;
         filter: brightness(0.5)!important;
+    }
+    .getblur {
+        filter: blur(7px)!important;
     }
 </style>
