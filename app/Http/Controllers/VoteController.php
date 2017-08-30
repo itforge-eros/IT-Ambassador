@@ -22,6 +22,6 @@ class VoteController extends Controller
         $male = $request->input('male');
         Candidate::find($female['id'])->increment('score');
         Candidate::find($male['id'])->increment('score');
-        return ['status' => 200, 'message' => 'Voted.'];
+        return ['status' => '200', 'message' => 'Voted.'];
     }
 }

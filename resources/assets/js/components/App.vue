@@ -1,6 +1,6 @@
 <template>
     <div id="wall">
-        <passcode v-if="showModal" @close="showModal = false"></passcode>
+        <passcode :selectedMale="selectedMale" :selectedFemale="selectedFemale" v-if="showModal" @close="showModal = false"></passcode>
         <div :class="{'getblur': showModal}" id="wrapper">
             <div id="bg"></div>
             <div class="container-fluid">
@@ -101,18 +101,6 @@
                     return
                 }
                 this.btnDisabled = false
-            },
-            handleSend () {
-                if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
-                    // TODO push modal when this conditions occur
-                    console.log('not xxx')
-                } else {
-                    axios.post('/vote', {
-                        code: this.code,
-                        male: this.selectedMale,
-                        female: this.selectedFemale,
-                    }).then(res => console.log(res.data)).catch(err => console.log(err.response))
-                }
             },
             isDisabled () {
                 return !this.btnDisabled && !this.showModal

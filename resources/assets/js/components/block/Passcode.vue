@@ -5,19 +5,21 @@
                 <div class="modal-container" @click.stop>
 
                     <div class="modal-header">
-                        <h3>รหัสโหวต</h3>
+                        <h3 v-if="res.status == '400'" style="color: #ff9f20">รหัสถูกใช้ไปแล้ว</h3>
+                        <h3 v-else-if="res.status == '404'" style="color: #ff4135">รหัสไม่ถูกต้อง</h3>
+                        <h3 v-else>กรุณากรอกรหัส</h3>
                     </div>
 
                     <div class="modal-body">
-                        <form>
+
                             <div class="form-group">
-                                <input maxlength="5" type="text" class="form-control" id="passcode">
+                                <input autocomplete="off" maxlength="5" type="text" class="form-control" id="passcode" v-model="code">
                             </div>
-                        </form>
+
                     </div>
 
                     <div class="modal-footer">
-                        <button class="modal-default-button" @click="$emit('close')">Vote</button>
+                        <button :class="{'modal-default-button': true, 'grayout': code.length != 5}" @click="handleSend" :disabled="code.length != 5">Vote</button>
                     </div>
                 </div>
             </div>
@@ -27,11 +29,27 @@
 
 <script>
     export default {
-        props: ['show'],
+        data () {
+            return {
+                code: '',
+                res: '',
+            }
+        },
+        props: ['selectedMale', 'selectedFemale'],
         methods: {
             close: function () {
                 this.$emit('close');
-            }
+            },
+            handleSend () {
+                axios.post('/vote', {
+                    code: this.code,
+                    male: this.selectedMale,
+                    female: this.selectedFemale,
+                }).then(res => {
+                    console.log(res.data)
+                    this.res = res.data
+                }).catch(err => console.log(err.response))
+            },
         }
     }
 </script>
@@ -96,6 +114,8 @@
         font-size: 20px;
         font-family: cloud;
         font-weight: bold;
+        filter: brightness(1);
+        transition: 0.3s ease;
     }
     .modal-footer {
         padding: 0;
@@ -123,5 +143,9 @@
     .modal-leave-active .modal-container {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
+    }
+    .grayout {
+        cursor: not-allowed;
+        filter: brightness(0.70);
     }
 </style>
