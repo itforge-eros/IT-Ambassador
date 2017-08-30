@@ -48,6 +48,10 @@
                 }).then(res => {
                     console.log(res.data)
                     this.res = res.data
+                    if (this.res.status === '200') {
+                        this.$emit('accept')
+                        this.code = ''
+                    }
                 }).catch(err => console.log(err.response))
             },
         }

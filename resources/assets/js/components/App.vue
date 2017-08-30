@@ -1,7 +1,8 @@
 <template>
     <div id="wall">
-        <passcode :selectedMale="selectedMale" :selectedFemale="selectedFemale" v-if="showModal" @close="showModal = false"></passcode>
-        <div :class="{'getblur': showModal}" id="wrapper">
+        <accepted @close="showAccept = false" v-if="showAccept"></accepted>
+        <passcode @accept="showAccept = true; showModal = false" :selectedMale="selectedMale" :selectedFemale="selectedFemale" v-if="showModal" @close="showModal = false"></passcode>
+        <div :class="{'getblur': showModal || showAccept}" id="wrapper">
             <div id="bg"></div>
             <div class="container-fluid">
                 <div class="row">
@@ -21,6 +22,7 @@
                                 :scrollPerPage="true"
                                 :paginationSize="15"
                                 :minSwipeDistance="80"
+                                paginationColor="#a0a0a0"
                                 :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
                             <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
                                 <person-ticket
@@ -38,6 +40,7 @@
                                 :scrollPerPage="true"
                                 :paginationSize="15"
                                 :minSwipeDistance="80"
+                                paginationColor="#a0a0a0"
                                 :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
                             <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
                                 <person-ticket
@@ -64,8 +67,9 @@
     import PersonTicket from './block/Person-Ticket.vue'
     import Passcode from './block/Passcode.vue'
     import { Carousel, Slide } from 'vue-carousel'
+    import Accepted from './block/Accepted.vue'
     export default {
-        components: {Shooter, PersonTicket, Passcode, Carousel, Slide},
+        components: {Shooter, PersonTicket, Passcode, Carousel, Slide, Accepted},
         data () {
             return {
                 selectedFemale: {},
@@ -74,6 +78,7 @@
                 code: '720AE',
                 btnDisabled: true,
                 showModal: false,
+                showAccept: false,
             }
         },
         mounted () {
@@ -104,6 +109,9 @@
             },
             isDisabled () {
                 return !this.btnDisabled && !this.showModal
+            },
+            handleAccept () {
+                console.log('55555')
             }
         },
     }
