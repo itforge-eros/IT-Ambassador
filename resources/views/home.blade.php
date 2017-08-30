@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        .row {
+            font-family: 'Fira Mono', monospace;
+        }
+    </style>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -18,10 +23,13 @@
                         <input type="submit">
                     </form>
                     @if(!empty($codes))
-                        @foreach($codes as $code)
-                            <h2>{{$code}}</h2>
-                            <hr>
-                        @endforeach
+                        <div class="col">
+                            @foreach($codes as $code)
+                                <div class="col-sm">
+                                    <h4>{{$code}}</h4>
+                                </div>
+                            @endforeach
+                        </div>
                     @endif
                 </div>
             </div>

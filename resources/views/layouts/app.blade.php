@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
 </head>
 <body>
     <div id="laravelapp">
