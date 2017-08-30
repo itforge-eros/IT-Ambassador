@@ -25,7 +25,7 @@
                             <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
                                 <person-ticket
                                         :candidate="candidate"
-                                        @click.native="handleSelected(candidate)"
+                                        @click.native="handleSelected(candidate); handleButton()"
                                         :selected="selectedMale">
                                 </person-ticket>
                             </slide>
@@ -42,13 +42,13 @@
                             <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
                                 <person-ticket
                                         :candidate="candidate"
-                                        @click.native="handleSelected(candidate)"
+                                        @click.native="handleSelected(candidate); handleButton()"
                                         :selected="selectedFemale">
                                 </person-ticket>
                             </slide>
                         </carousel>
                     </div>
-                <shooter data-toggle="modal" data-target="#myModal" @click.native="handleSend" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
+                <shooter :class="{'btn-disabled': btnDisabled}" @click.native="" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
                 <div class="row">
                     <div id="logo-itforge" class="col-xs-12">
@@ -72,6 +72,7 @@
                 selectedMale: {},
                 candidates: [],
                 code: '720AE',
+                btnDisabled: true,
             }
         },
         mounted () {
@@ -92,6 +93,13 @@
                     }
                     this.selectedFemale = candidate
                 }
+            },
+            handleButton() {
+                if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
+                    this.btnDisabled = true
+                    return
+                }
+                this.btnDisabled = false
             },
             handleSend () {
                 if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
@@ -143,5 +151,9 @@
         img {
             width: 230px;
         }
+    }
+    .btn-disabled {
+        cursor: not-allowed!important;
+        filter: brightness(0.5)!important;
     }
 </style>
