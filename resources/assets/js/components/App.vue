@@ -1,6 +1,5 @@
 <template>
     <div id="wall">
-        <passcode></passcode>
         <div id="wrapper">
             <div id="bg"></div>
             <div class="container-fluid">
@@ -48,7 +47,14 @@
                             </slide>
                         </carousel>
                     </div>
-                <shooter :class="{'btn-disabled': btnDisabled}" @click.native="" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
+                    <!-- use the modal component, pass in the prop -->
+                    <passcode v-if="showModal" @close="showModal = false">
+                        <!--
+                          you can use custom content here to overwrite
+                          default content
+                        -->
+                    </passcode>
+                <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
                 <div class="row">
                     <div id="logo-itforge" class="col-xs-12">
@@ -73,6 +79,7 @@
                 candidates: [],
                 code: '720AE',
                 btnDisabled: true,
+                showModal: false,
             }
         },
         mounted () {
@@ -94,7 +101,7 @@
                     this.selectedFemale = candidate
                 }
             },
-            handleButton() {
+            handleButton () {
                 if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
                     this.btnDisabled = true
                     return
@@ -113,6 +120,9 @@
                     }).then(res => console.log(res.data)).catch(err => console.log(err.response))
                 }
             },
+            isDisabled () {
+                return !this.btnDisabled && !this.showModal
+            }
         },
     }
 </script>

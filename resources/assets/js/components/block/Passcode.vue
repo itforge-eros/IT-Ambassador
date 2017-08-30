@@ -1,111 +1,127 @@
 <template>
-    <div id="passcode">
-        <div id="myModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
+    <transition name="modal">
+        <div class="modal-mask" @click="$emit('close')">
+            <div class="modal-wrapper">
+                <div class="modal-container" @click.stop>
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="ticket">
-                        <div class="info">
-
-                        </div>
-                        <div class="action">
-                            <div class="row">
-                                <form>
-                                    <div class="form-group col-xs-12">
-                                        <label for="pass_code">Enter your passcode:</label>
-                                        <input maxlength="5" type="text" class="form-control" id="pass_code">
-                                    </div>
-                                </form>
-                                <button type="button" class="col-xs-12 col-sm-6 btn btn-info" data-dismiss="modal">Close</button>
-                                <button type="button" class="col-xs-12 col-sm-6 btn btn-info">Vote</button>
-                            </div>
-                        </div>
+                    <div class="modal-header">
+                        <h3>รหัสโหวต</h3>
                     </div>
-                </div>
 
-              </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <input maxlength="5" type="text" class="form-control" id="passcode">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="modal-default-button" @click="$emit('close')">Vote</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>
     export default {
-        props: [],
+        props: ['show'],
+        methods: {
+            close: function () {
+                this.$emit('close');
+            }
+        }
     }
 </script>
 
 <style lang="scss" scoped>
-    @media screen and (max-width: 320px) {
-        .ticket {
-            max-width: 290px!important;
-        }
-    }
-
-    .ticket {
-        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        width: 60vw;
-        height: auto;
-        overflow: hidden;
-        border-radius: 7px;
-        position: relative;
-        transform: scale(0.95);
-        background: #fff;
-        padding: 15px;
-        margin: 0 auto;
-        .action {
-            position: relative;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px;
-            input {
-                background: none;
-                font-size: 60px;
-                color: #fff;
-                height: auto;
-                text-align: center;
-                text-transform: uppercase;
-                font-family: cloud;
-                font-weight: bold;
-            }
-            button {
-                font-size: 16px;
-                transform: scale(0.95);
-            }
-
-        }
-    }
-    .info {
-        position: absolute;
+    .modal-mask {
+        position: fixed;
+        z-index: 9998;
         top: 0;
         left: 0;
-        width: 120%;
-        height: 60%;
-        background: linear-gradient(125deg, rgb(2, 109, 255), rgb(107, 204, 255));
-        font-family: cloud;
-        p {
-            margin: 0;
-            font-size: 1.7rem!important;
-        }
-        h2 {
-            margin: 0;
-            font-weight: bold;
-        }
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        display: table;
+        transition: opacity .3s ease;
     }
-    .modal-dialog, .modal-content {
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-    }
-    .modal-content {
-        background: transparent;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-shadow: none;
-        .form-control {
 
+    .modal-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .modal-container {
+        width: 300px;
+        margin: 0px auto;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+        transition: all .3s ease;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .modal-header h3 {
+        margin: 0;
+        color: #000;
+        text-align: center;
+        font-family: cloud;
+        font-weight: bold;
+    }
+
+    .modal-body {
+        padding: 0;
+        .form-group {
+            margin-bottom: 0;
         }
+        input {
+            font-size: 40px;
+            text-align: center;
+            height: auto;
+            text-transform: uppercase;
+            border: none;
+        }
+    }
+
+
+    .modal-default-button {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(200deg, #3dbbff, #a275ff);
+        color: white;
+        border: none;
+        font-size: 20px;
+        font-family: cloud;
+        font-weight: bold;
+    }
+    .modal-footer {
+        padding: 0;
+        border-top: none;
+    }
+
+    /*
+     * The following styles are auto-applied to elements with
+     * transition="modal" when their visibility is toggled
+     * by Vue.js.
+     *
+     * You can easily play with the modal transition by editing
+     * these styles.
+     */
+
+    .modal-enter {
+        opacity: 0;
+    }
+
+    .modal-leave-active {
+        opacity: 0;
+    }
+
+    .modal-enter .modal-container,
+    .modal-leave-active .modal-container {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
     }
 </style>

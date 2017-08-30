@@ -30,6 +30,8 @@
         background: gray;
         background: linear-gradient(200deg, #3dbbff, #a275ff);
         z-index: 4;
+        transition: 0.3s ease;
+        filter: brightness(1);
         p {
             font-size: 1.9rem;
             font-family: cloud;
