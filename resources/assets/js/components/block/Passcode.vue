@@ -11,11 +11,9 @@
                     </div>
 
                     <div class="modal-body">
-
-                            <div class="form-group">
-                                <input autocomplete="off" maxlength="5" type="text" class="form-control" id="passcode" v-model="code">
-                            </div>
-
+                        <div class="form-group">
+                            <input autocomplete="off" maxlength="5" type="text" class="form-control" id="passcode" v-model="code">
+                        </div>
                     </div>
 
                     <div class="modal-footer">
@@ -35,10 +33,12 @@
                 res: '',
             }
         },
-        props: ['selectedMale', 'selectedFemale'],
+        props: ['selectedMale', 'selectedFemale', 'show'],
         methods: {
             close: function () {
-                this.$emit('close');
+                this.code = ''
+                this.res = ''
+                this.$emit('close')
             },
             handleSend () {
                 axios.post('/vote', {
@@ -54,6 +54,17 @@
                     }
                 }).catch(err => console.log(err.response))
             },
+        },
+        mounted: function () {
+            document.addEventListener("keydown", (e) => {
+                if (this.show && e.keyCode === 27) {
+                    this.close()
+                    return
+                }
+                if (this.show && e.keyCode === 13 && this.code.length === 5) {
+                    this.handleSend()
+                }
+            });
         }
     }
 </script>

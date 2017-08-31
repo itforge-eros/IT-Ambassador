@@ -1,7 +1,14 @@
 <template>
     <div id="wall">
-        <accepted @close="showAccept = false" v-if="showAccept"></accepted>
-        <passcode @accept="showAccept = true; showModal = false" :selectedMale="selectedMale" :selectedFemale="selectedFemale" v-if="showModal" @close="showModal = false"></passcode>
+        <accepted @close="showAccept = false" v-show="showAccept"></accepted>
+        <passcode
+                :show="showModal"
+                :selectedMale="selectedMale"
+                :selectedFemale="selectedFemale"
+                v-show="showModal"
+                @accept="showAccept = true; showModal = false"
+                @close="showModal = false">
+        </passcode>
         <div :class="{'getblur': showModal || showAccept}" id="wrapper">
             <div id="bg"></div>
             <div class="container-fluid">
@@ -110,9 +117,6 @@
             isDisabled () {
                 return !this.btnDisabled && !this.showModal
             },
-            handleAccept () {
-                console.log('55555')
-            }
         },
     }
 </script>
