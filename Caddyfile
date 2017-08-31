@@ -4,12 +4,10 @@ ambassador.iikjii.me {
     log     stdout
     errors  stderr
     gzip
-#    cache {
-#        match_path /img /font
-#        status_header X-Cache-Status
-#        default_max_age 300m
-#        path /tmp/caddy-cache
-#    }
+
+    header /img Cache-Control "max-age=2592000"
+    header /font Cache-Control "max-age=2592000"
+
     root /srv/public
 
     fastcgi / 127.0.0.1:9000 php
