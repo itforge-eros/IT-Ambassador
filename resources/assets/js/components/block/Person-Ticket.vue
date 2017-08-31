@@ -5,7 +5,7 @@
             <p>{{ candidate.name }} {{ candidate.surname }}</p>
         </div>
         <div class="top">
-            <img :src="`img/${candidate.img_link}`" alt="profile">
+            <img :class="`candidate-${candidate.id}`" :src="`img/candidates/${candidate.id}.jpg`" alt="profile">
         </div>
     </div>
 </template>
@@ -57,8 +57,9 @@
             transform: rotate(5deg) scale(1.3);
             overflow: hidden;
             img {
-                transform: rotate(-5deg);
-                height: 110%;
+                transform: rotate(-5deg) translateY(-38px);
+                width: 100%;
+                position: relative;
             }
         }
     }
@@ -81,5 +82,38 @@
         background: linear-gradient(-45deg, rgba(255, 120, 144, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%);
         color: white;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+    //Style for Candidates
+
+    .candidate-1 {
+        bottom: 10px;
+    }
+    .candidate-2 {
+
+    }
+    .candidate-3 {
+
+    }
+    .candidate-4 {
+
+    }
+    .candidate-5 {
+        bottom: 55px;
+    }
+    .candidate-6 {
+        bottom: 45px;
+    }
+    .candidate-7 {
+        bottom: 45px;
+    }
+    .candidate-8 {
+        bottom: 45px;
+    }
+    .candidate-9 {
+        bottom: 25px;
+    }
+    .candidate-10 {
+        top: 10px;
     }
 </style>
