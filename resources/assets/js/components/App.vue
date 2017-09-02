@@ -27,7 +27,7 @@
                         <carousel
                                 :perPage="1"
                                 :scrollPerPage="true"
-                                :paginationSize="15"
+                                :paginationSize="10"
                                 :minSwipeDistance="80"
                                 paginationColor="#a0a0a0"
                                 :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
@@ -45,7 +45,7 @@
                         <carousel
                                 :perPage="1"
                                 :scrollPerPage="true"
-                                :paginationSize="15"
+                                :paginationSize="10"
                                 :minSwipeDistance="80"
                                 paginationColor="#a0a0a0"
                                 :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
