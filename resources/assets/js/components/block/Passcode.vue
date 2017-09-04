@@ -61,7 +61,7 @@
                     this.close()
                     return
                 }
-                if (this.show && e.keyCode === 13 && this.code.length === 5) {
+                if (this.show && e.keyCode === 13 && this.code.length === 4) {
                     this.handleSend()
                 }
             });
