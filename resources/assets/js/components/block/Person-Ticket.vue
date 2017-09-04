@@ -58,7 +58,7 @@
             overflow: hidden;
             img {
                 transform: rotate(-5deg) translateY(-38px);
-                width: 100%;
+                width: 110%;
                 position: relative;
             }
         }
