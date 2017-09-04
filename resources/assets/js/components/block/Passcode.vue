@@ -12,7 +12,7 @@
 
                     <div class="modal-body">
                         <div class="form-group">
-                            <input autocomplete="off" maxlength="5" type="text" class="form-control" id="passcode" v-model="code">
+                            <input autocomplete="off" maxlength="4" type="text" class="form-control" id="passcode" v-model="code">
                         </div>
                     </div>
 
