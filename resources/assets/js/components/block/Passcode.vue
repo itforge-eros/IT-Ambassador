@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button :class="{'modal-default-button': true, 'grayout': code.length != 4}" @click="handleSend" :disabled="code.length != 5">Vote</button>
+                        <button :class="{'modal-default-button': true, 'grayout': code.length != 4}" @click="handleSend" :disabled="code.length != 4">Vote</button>
                     </div>
                 </div>
             </div>
