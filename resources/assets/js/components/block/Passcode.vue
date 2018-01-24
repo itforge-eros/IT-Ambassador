@@ -12,12 +12,12 @@
 
                     <div class="modal-body">
                         <div class="form-group">
-                            <input autocomplete="off" maxlength="4" type="text" class="form-control" id="passcode" v-model="code">
+                            <input autocomplete="off" maxlength="6" minlength="4" type="text" class="form-control" id="passcode" v-model="code">
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button :class="{'modal-default-button': true, 'grayout': code.length != 4}" @click="handleSend" :disabled="code.length != 4">Vote</button>
+                        <button :class="{'modal-default-button': true, 'grayout': code.length < 4}" @click="handleSend" :disabled="code.length < 4">Vote</button>
                     </div>
                 </div>
             </div>
