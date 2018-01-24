@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 class VoteController extends Controller
 {
     public function vote(Request $request) {
-        $input_code = $request->input('code');
-        if(env('TEST', false) && $input_code == '11111') {
+        $test_codes = ['4444', '55555', '666666'];
+        if(env('TEST', false) && in_array($request->input('code'), $test_codes)) {
             $this->increase($request);
             return ['status' => '200', 'message' => 'Voted.'];
         }
-        $code = Code::where('code', $input_code)->first();
+        $code = Code::where('code', $request->input('code'))->first();
         if ($code == null) {
             return ['status' => '404', 'message' => 'Code not found.'];
         }
@@ -27,9 +27,19 @@ class VoteController extends Controller
     }
 
     private function increase($request) {
+        $amount = $this->getIncrementValue($request->input('code'));
         $female = $request->input('female');
         $male = $request->input('male');
-        Candidate::find($female['id'])->increment('score');
-        Candidate::find($male['id'])->increment('score');
+        Candidate::find($female['id'])->increment('score', $amount);
+        Candidate::find($male['id'])->increment('score', $amount);
+    }
+
+    private function getIncrementValue($code) {
+        switch (strlen($code)) {
+            case 4: return 1;
+            case 5: return 5;
+            case 6: return 10;
+            default: return 0;
+        }
     }
 }
