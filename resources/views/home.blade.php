@@ -21,9 +21,9 @@
                             @endfor
                         </select>
                         <select name="length">
-                            <option value="4">1 point</option>
-                            <option value="5">5 points</option>
-                            <option value="6">10 points</option>
+                            <option value="5">1 point</option>
+                            <option value="6">5 points</option>
+                            <option value="7">10 points</option>
                         </select>
                         <input type="submit">
                     </form>
