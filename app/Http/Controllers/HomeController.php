@@ -28,11 +28,11 @@ class HomeController extends Controller
 
     public function genCode(Request $request)
     {
-        $numbers =  $request->numbers;
+        $numbers =  $request->amount;
         $result = array();
         foreach (range(1, $numbers) as $i) {
             $code = new Code;
-            $generated = strtoupper(str_random(4));
+            $generated = strtoupper(str_random($request->length));
             array_push($result, $generated);
             $code->code = $generated;
             $code->save();

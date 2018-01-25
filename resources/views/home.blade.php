@@ -15,10 +15,15 @@
                 <div class="panel-body">
                     <form action="/home" method="post">
                         {{ csrf_field() }}
-                        <select name="numbers" id="numbers">
+                        <select name="amount" id="numbers">
                             @for($i = 1; $i <= 10; $i++)
                                 <option value="{{$i}}">{{$i}}</option>
                             @endfor
+                        </select>
+                        <select name="length">
+                            <option value="4">1 point</option>
+                            <option value="5">5 points</option>
+                            <option value="6">10 points</option>
                         </select>
                         <input type="submit">
                     </form>
