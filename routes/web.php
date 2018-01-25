@@ -19,3 +19,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@genCode')->name('home');
 Route::post('/vote', 'VoteController@vote');
 Route::get('/candidates', 'CandidateController@getAllCandidates');
+Route::get('/amount', 'CandidateController@amount');

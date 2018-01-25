@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Candidate;
-use Illuminate\Http\Request;
+use App\Code;
 
 class CandidateController extends Controller
 {
@@ -12,5 +12,9 @@ class CandidateController extends Controller
 
     public function index () {
         return view('ticket');
+    }
+
+    public function amount() {
+        return ['amount' => Code::where('is_used', '=', 1)->count()];
     }
 }
