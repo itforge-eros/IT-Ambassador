@@ -61,6 +61,11 @@
                 <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
                 <div class="row">
+                    <h2 class="text-center">
+                        Amount: {{ this.amount }}
+                    </h2>
+                </div>
+                <div class="row">
                     <div id="logo-itforge" class="col-xs-12">
                         <img src="img/itforge.png" alt="itforge logo">
                     </div>
@@ -86,10 +91,12 @@
                 btnDisabled: true,
                 showModal: false,
                 showAccept: false,
+                amount: 0
             }
         },
         mounted () {
             axios.get('/candidates').then(res => this.candidates = res.data).catch(err => console.log(err))
+            axios.get('/amount').then(({data}) => this.amount = data.amount).catch(err => console.log(err))
         },
         methods: {
             handleSelected (candidate) {
