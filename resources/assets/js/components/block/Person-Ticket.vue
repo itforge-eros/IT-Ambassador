@@ -79,7 +79,7 @@
     }
     .choose {
         transform: scale(0.99);
-        background: linear-gradient(-45deg, rgba(255, 120, 144, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%);
+        background: linear-gradient(-45deg, rgb(83, 24, 24), rgba(126, 81, 61, 0.58));
         color: white;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
@@ -87,10 +87,10 @@
     //Style for Candidates
 
     .candidate-1 {
-        bottom: 10px;
+        
     }
     .candidate-2 {
-
+        top: 18px;
     }
     .candidate-3 {
 
@@ -99,21 +99,9 @@
 
     }
     .candidate-5 {
-        bottom: 55px;
+        top: 38px;
     }
     .candidate-6 {
-        bottom: 45px;
-    }
-    .candidate-7 {
-        bottom: 45px;
-    }
-    .candidate-8 {
-        bottom: 45px;
-    }
-    .candidate-9 {
-        bottom: 25px;
-    }
-    .candidate-10 {
-        top: 10px;
+        top: 53px;
     }
 </style>

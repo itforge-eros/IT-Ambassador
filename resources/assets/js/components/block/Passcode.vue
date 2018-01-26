@@ -123,7 +123,7 @@
     .modal-default-button {
         width: 100%;
         padding: 10px;
-        background: linear-gradient(200deg, #3dbbff, #a275ff);
+        background: linear-gradient(200deg, rgb(83, 24, 24), rgb(126, 81, 61));
         color: white;
         border: none;
         font-size: 20px;

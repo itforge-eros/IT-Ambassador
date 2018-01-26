@@ -10,17 +10,13 @@
                 @close="showModal = false">
         </passcode>
         <div :class="{'getblur': showModal || showAccept}" id="wrapper">
-            <div id="bg"></div>
+            <div id="bg"><img class="inner" src="img/overlay.png" alt=""></div>
             <div class="container-fluid">
                 <div class="row">
                     <div id="logo" class="col-xs-12">
                         <img src="img/logo.png" alt="logo">
                     </div>
                 </div>
-                <span id="header-text">
-                    <h3>ร่วมโหวต IT AMBASSADOR ในดวงใจคุณ</h3>
-                    <p>ชอบใคร รักใคร เทหัวใจให้หมดตัว</p>
-                </span>
                 <div class="container">
                     <!-- Male -->
                     <div class="row">
@@ -132,22 +128,21 @@
         position: absolute;
         width: 100%;
         height: 50vh;
-        background: linear-gradient(200deg, #3dbbff, #a275ff);
+        background: #531818;
         z-index: -1;
+        overflow: hidden;
+        .inner {
+            position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: 1;
+            opacity: 0.42;
+        }
     }
     #wrapper {
         margin-bottom: 56px;
         transition: 0.3s ease;
         filter: blur(0px);
-    }
-    #header-text {
-        margin-top: 10px;
-        color: #fff;
-        text-align: center;
-        font-family: cloud;
-        p {
-            font-size: 18px;
-        }
     }
     .candidates {
         display: flex;
@@ -156,7 +151,7 @@
     #logo {
         text-align: center;
         img {
-            width: 225px;
+            width: 280px;
         }
     }
     #logo-itforge {

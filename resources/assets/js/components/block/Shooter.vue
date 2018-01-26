@@ -28,7 +28,7 @@
         left: 0;
         width: 100%;
         background: gray;
-        background: linear-gradient(200deg, #3dbbff, #a275ff);
+        background: linear-gradient(200deg, rgb(83, 24, 24), rgb(126, 81, 61));
         z-index: 4;
         transition: 0.3s ease;
         filter: brightness(1);
