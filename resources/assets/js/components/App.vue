@@ -128,6 +128,7 @@
         position: absolute;
         width: 100%;
         height: 50vh;
+        min-height: 320px;
         background: #531818;
         z-index: -1;
         overflow: hidden;

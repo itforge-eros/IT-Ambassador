@@ -90,10 +90,10 @@
         
     }
     .candidate-2 {
-        top: 18px;
+        top: 20px;
     }
     .candidate-3 {
-
+        top: 48px;
     }
     .candidate-4 {
 
@@ -102,6 +102,6 @@
         top: 38px;
     }
     .candidate-6 {
-        top: 53px;
+        top: 6px;
     }
 </style>
