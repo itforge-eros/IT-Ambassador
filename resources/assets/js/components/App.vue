@@ -57,14 +57,14 @@
                 <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
             </div>
                 <div class="row">
+                    <h2 class="text-center">
+                        Amount: {{ this.amount }}
+                    </h2>
+                </div>
+                <div class="row">
                     <div id="logo-itforge" class="col-xs-12">
                         <img src="img/itforge.png" alt="itforge logo">
                     </div>
-                </div>
-                <div class="row">
-                    <h4 class="text-center">
-                        Voted: {{ this.amount }}
-                    </h4>
                 </div>
         </div>
     </div>
@@ -137,7 +137,6 @@
             min-width: 100%;
             min-height: 100%;
             z-index: 1;
-            opacity: 0.42;
         }
     }
     #wrapper {
