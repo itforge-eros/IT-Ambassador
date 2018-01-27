@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class VoteController extends Controller
 {
     public function vote(Request $request) {
-        $test_codes = ['4444', '55555', '666666'];
+        $test_codes = ['55555', '666666', '7777777'];
         if(env('TEST', false) && in_array($request->input('code'), $test_codes)) {
             $this->increase($request);
             return ['status' => '200', 'message' => 'Voted.'];

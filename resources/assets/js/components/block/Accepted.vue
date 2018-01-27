@@ -7,7 +7,7 @@
                         <span class="col-xs-12 glyphicon glyphicon glyphicon-heart"></span>
                         <h1 class="col-xs-12"><b>ขอบคุณ!</b></h1>
                         <h4 class="col-xs-12">สามารถติดตามรายละเอียดได้ที่</h4>
-                        <h4 class="col-xs-12">fb.com/ITKMITLAmbassador</h4>
+                        <h4 class="col-xs-12">fb.com/IT3K2018</h4>
                         <div class="col-xs-12">
                             <img src="img/logo.png" alt="">
                         </div>
