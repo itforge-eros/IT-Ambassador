@@ -36,9 +36,9 @@ class VoteController extends Controller
 
     private function getIncrementValue($code) {
         switch (strlen($code)) {
-            case 4: return 1;
-            case 5: return 5;
-            case 6: return 10;
+            case 5: return 1;
+            case 6: return 5;
+            case 7: return 10;
             default: return 0;
         }
     }
