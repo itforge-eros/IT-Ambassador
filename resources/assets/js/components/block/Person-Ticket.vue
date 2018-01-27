@@ -79,7 +79,7 @@
     }
     .choose {
         transform: scale(0.99);
-        background: linear-gradient(-45deg, rgb(83, 24, 24), rgba(126, 81, 61, 0.58));
+        background: linear-gradient(-45deg, #ff4d2f, #54190f);
         color: white;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
