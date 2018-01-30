@@ -87,21 +87,28 @@
     //Style for Candidates
 
     .candidate-1 {
-        
+        top: 30px;
+        right: 10px;
     }
     .candidate-2 {
-        top: 20px;
+        top: 35px;
+        right: 17px;
     }
     .candidate-3 {
-        top: 48px;
+        top: 35px;
+        right: 6px;
     }
     .candidate-4 {
+        top: 30px;
+        right: 10px;
 
     }
     .candidate-5 {
-        top: 38px;
+        top: 30px;
+        right: 15px;
     }
     .candidate-6 {
-        top: 6px;
+        top: 7px;
+        right: 9px;
     }
 </style>
