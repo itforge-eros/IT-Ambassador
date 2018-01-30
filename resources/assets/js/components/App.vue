@@ -3,8 +3,7 @@
         <accepted @close="showAccept = false" v-show="showAccept"></accepted>
         <passcode
                 :show="showModal"
-                :selectedMale="selectedMale"
-                :selectedFemale="selectedFemale"
+                :selected="selected"
                 v-show="showModal"
                 @accept="showAccept = true; showModal = false"
                 @close="showModal = false">
@@ -31,7 +30,7 @@
                                 <person-ticket
                                         :candidate="candidate"
                                         @click.native="handleSelected(candidate); handleButton()"
-                                        :selected="selectedMale">
+                                        :selected="selected">
                                 </person-ticket>
                             </slide>
                         </carousel>
@@ -49,12 +48,12 @@
                                 <person-ticket
                                         :candidate="candidate"
                                         @click.native="handleSelected(candidate); handleButton()"
-                                        :selected="selectedFemale">
+                                        :selected="selected">
                                 </person-ticket>
                             </slide>
                         </carousel>
                     </div>
-                <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
+                <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selected="selected"></shooter>
             </div>
                 <div class="row">
                     <div id="logo-itforge" class="col-xs-12">
@@ -80,8 +79,7 @@
         components: {Shooter, PersonTicket, Passcode, Carousel, Slide, Accepted},
         data () {
             return {
-                selectedFemale: {},
-                selectedMale: {},
+                selected: {},
                 candidates: [],
                 code: '720AE',
                 btnDisabled: true,
@@ -96,22 +94,14 @@
         },
         methods: {
             handleSelected (candidate) {
-                if (candidate.title === 'นาย') {
-                    if (this.selectedMale === candidate) {
-                        this.selectedMale = {}
-                        return
-                    }
-                    this.selectedMale = candidate
-                } else {
-                    if (this.selectedFemale === candidate) {
-                        this.selectedFemale = {}
-                        return
-                    }
-                    this.selectedFemale = candidate
+                if (this.selected === candidate) {
+                    this.selected = {}
+                    return
                 }
+                this.selected = candidate
             },
             handleButton () {
-                if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
+                if (Object.keys(this.selected).length === 0) {
                     this.btnDisabled = true
                     return
                 }

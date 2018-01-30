@@ -33,7 +33,7 @@
                 res: '',
             }
         },
-        props: ['selectedMale', 'selectedFemale', 'show'],
+        props: ['selected', 'show'],
         methods: {
             close: function () {
                 this.code = ''

@@ -1,16 +1,16 @@
 <template>
     <div id="shooter">
-        <p v-if="isBothSelected">โหวต นาย{{selectedMale.name}} และ นางสาว{{selectedFemale.name}} <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
+        <p v-if="isSelected">โหวต {{selected.title + selected.name}} <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
         <p v-else>กรุณาเลือกคนให้ครบ</p>
     </div>
 </template>
 <script>
     export default {
         name: 'shooter',
-        props: ['selectedMale', 'selectedFemale'],
+        props: ['selected'],
         computed: {
-            isBothSelected () {
-                if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
+            isSelected () {
+                if (Object.keys(this.selected).length === 0) {
                     return false
                 } else {
                     return true
