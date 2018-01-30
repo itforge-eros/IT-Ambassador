@@ -27,14 +27,12 @@ class VoteController extends Controller
     }
 
     private function increase($request) {
-        $amount = $this->getIncrementValue($request->input('code'));
-        $female = $request->input('female');
-        $male = $request->input('male');
-        Candidate::find($female['id'])->increment('score', $amount);
-        Candidate::find($male['id'])->increment('score', $amount);
+        $amount = $this->getIncrementScore($request->input('code'));
+        $selected = $request->input('selected');
+        Candidate::find($selected['id'])->increment('score', $amount);
     }
 
-    private function getIncrementValue($code) {
+    private function getIncrementScore($code) {
         switch (strlen($code)) {
             case 5: return 1;
             case 6: return 5;

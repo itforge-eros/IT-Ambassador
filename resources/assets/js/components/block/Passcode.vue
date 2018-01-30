@@ -43,8 +43,7 @@
             handleSend () {
                 axios.post('/vote', {
                     code: this.code,
-                    male: this.selectedMale,
-                    female: this.selectedFemale,
+                    selected: this.selected,
                 }).then(res => {
                     console.log(res.data)
                     this.res = res.data
