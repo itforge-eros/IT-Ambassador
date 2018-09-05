@@ -9,7 +9,7 @@ class VoteController extends Controller
 {
     public function vote(Request $request) {
         $input_code = $request->input('code');
-        if(env('TEST', false) && $input_code == '11111') {
+        if(env('TEST', false) && $input_code == '111111') {
             $this->increase($request);
             return ['status' => '200', 'message' => 'Voted.'];
         }
