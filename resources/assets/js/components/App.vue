@@ -58,15 +58,15 @@
                             </slide>
                         </carousel>
                     </div>
-                <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
-            </div>
-                <div class="row">
-                    <div id="logo-itforge" class="col-xs-12">
-                        <img src="img/itforge.png" alt="itforge logo">
-                    </div>
+                    <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
                 </div>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div id="logo-itforge" class="col-xs-12">
+                Made with <b class="red">♥</b> by <b class="artisan">Artisan</b>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -129,7 +129,6 @@
         z-index: -1;
     }
     #wrapper {
-        margin-bottom: 56px;
         transition: 0.3s ease;
         filter: blur(0px);
     }
@@ -148,14 +147,19 @@
     }
     #logo {
         text-align: center;
+        margin-top: 2em;
         img {
             width: 225px;
         }
     }
     #logo-itforge {
+        padding: 32px;
         text-align: center;
-        img {
-            width: 230px;
+        .red {
+            color: rgb(232, 4, 78);
+        }
+        .artisan {
+            color: rgb(109, 0, 237);
         }
     }
     .btn-disabled {
