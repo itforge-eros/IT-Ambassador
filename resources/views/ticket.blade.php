@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>IT Ambassador | 2018</title>
+    <title>IT Ambassador | 2019</title>
 </head>
 <body>
     <div id="app">
