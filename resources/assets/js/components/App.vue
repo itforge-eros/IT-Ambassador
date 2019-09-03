@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div id="logo" class="col-xs-12">
-                        <img src="img/logo.png" alt="logo">
+                        <img src="img/logo2019.png" alt="logo">
                     </div>
                 </div>
                 <span id="header-text">
@@ -31,7 +31,7 @@
                                 :minSwipeDistance="80"
                                 paginationColor="#a0a0a0"
                                 :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
-                            <slide v-if="candidate.title === 'นาย'" v-for="candidate in candidates" :key="candidate.id">
+                            <slide v-for="candidate in maleCandidates" :key="candidate.id">
                                 <person-ticket
                                         :candidate="candidate"
                                         @click.native="handleSelected(candidate); handleButton()"
@@ -49,7 +49,7 @@
                                 :minSwipeDistance="80"
                                 paginationColor="#a0a0a0"
                                 :perPageCustom="[[420, 1], [700, 2], [1024, 3]]">
-                            <slide v-if="candidate.title === 'นางสาว'" v-for="candidate in candidates" :key="candidate.id">
+                            <slide v-for="candidate in femaleCandidates" :key="candidate.id">
                                 <person-ticket
                                         :candidate="candidate"
                                         @click.native="handleSelected(candidate); handleButton()"
@@ -58,14 +58,14 @@
                             </slide>
                         </carousel>
                     </div>
-                    <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div id="logo-itforge" class="col-xs-12">
-                Made with <b class="red">♥</b> by <b class="artisan">Artisan</b>
-            </div>
+            <shooter
+                :class="{'btn-disabled': btnDisabled}"
+                @click.native="showModal = isDisabled()"
+                :selectedFemale="selectedFemale"
+                :selectedMale="selectedMale"
+            />
         </div>
     </div>
 </template>
@@ -108,7 +108,7 @@
                 }
             },
             handleButton () {
-                if (Object.keys(this.selectedMale).length === 0 ||Object.keys(this.selectedFemale).length === 0) {
+                if (Object.keys(this.selectedMale).length === 0 || Object.keys(this.selectedFemale).length === 0) {
                     this.btnDisabled = true
                     return
                 }
@@ -118,8 +118,27 @@
                 return !this.btnDisabled && !this.showModal
             },
         },
+        computed: {
+            femaleCandidates() {
+                return this.candidates.filter(candidate => candidate.title === "นางสาว")
+            },
+            maleCandidates() {
+                return this.candidates.filter(candidate => candidate.title === "นาย")
+            }
+        }
     }
 </script>
+<style lang="css">
+    .VueCarousel-wrapper {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 14px;
+    }
+    .VueCarousel-dot-container, .VueCarousel-dot{
+        margin: 0px!important;
+    }
+</style>
 <style lang="scss" scoped>
     #bg {
         position: absolute;
