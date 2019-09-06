@@ -22,8 +22,8 @@
 <style lang="scss" scoped>
     #shooter {
         cursor: pointer;
-        position: fixed;
         display: block;
+        margin-top: 1em;
         bottom: 0;
         left: 0;
         width: 100%;

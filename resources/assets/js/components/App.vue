@@ -58,13 +58,15 @@
                             </slide>
                         </carousel>
                     </div>
-                    <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div id="logo-itforge" class="col-xs-12">
-                Made with <b class="red">♥</b> by <b class="artisan">Artisan</b>
+        <div class="container-fluid">
+            <div class="row">
+                <shooter :class="{'btn-disabled': btnDisabled}" @click.native="showModal = isDisabled()" :selectedFemale="selectedFemale" :selectedMale="selectedMale"></shooter>
+                <div id="logo-itforge">
+                    Made with <b class="red">♥</b> by <b class="artisan">Artisan</b>
+                </div>
             </div>
         </div>
     </div>
