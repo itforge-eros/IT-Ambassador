@@ -41,7 +41,7 @@
                         </carousel>
                     </div>
                     <!-- Female -->
-                    <div class="row">
+                    <div class="row female-buttom">
                         <carousel
                                 :perPage="1"
                                 :scrollPerPage="true"
@@ -145,6 +145,7 @@
         width: 100%;
         height: 50vh;
         background: linear-gradient(200deg, #3dbbff, #a275ff);
+        // background-image: linear-gradient(to right top, #e8139e, #d03dc0, #ab59dd, #786ef1, #007efb);
         z-index: -1;
     }
     #wrapper {
@@ -187,5 +188,8 @@
     }
     .getblur {
         filter: blur(7px)!important;
+    }
+    .female-buttom {
+        margin-bottom: 60px;
     }
 </style>
