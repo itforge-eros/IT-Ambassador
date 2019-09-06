@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ConfigTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ConfigTableSeeder::class);
+        DB::table('configs')->insert([
+            'key' => 'open',
+            'value' => 'true',
+        ]);
     }
 }

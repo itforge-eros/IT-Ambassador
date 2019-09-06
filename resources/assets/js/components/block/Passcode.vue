@@ -6,6 +6,7 @@
 
                     <div class="modal-header">
                         <h3 v-if="res.status == '400'" style="color: #ff9f20">รหัสถูกใช้ไปแล้ว</h3>
+                        <h3 v-else-if="res.status == '401'" style="color: #ff4135">ปิดโหวตแล้ว</h3>
                         <h3 v-else-if="res.status == '404'" style="color: #ff4135">รหัสไม่ถูกต้อง</h3>
                         <h3 v-else>กรุณากรอกรหัส</h3>
                     </div>

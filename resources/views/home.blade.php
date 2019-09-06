@@ -10,9 +10,40 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Code Generator</div>
-
+                <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
+                    Vote Control
+                    <form action="/close" method="POST">
+                        {{ csrf_field() }}
+                        @if($open->value == 'false')
+                            Status : Close
+                            <input type="hidden" value="true" name="open">
+                            <button type="submit" class="btn btn-success">Open</button>
+                        @else
+                            Status : Open
+                            <input type="hidden" value="false" name="open">
+                            <button type="submit" class="btn btn-danger">Close</button>
+                        @endif
+                    </form>
+                    <br/>
+                    <b>Result</b>
+                    <div class="row">
+                        <div class="col-md-6">
+                            Boys <br/>
+                            @foreach($boys as $boy)
+                                {{$boy->title}}{{$boy->name}} {{$boy->surnanme}} ({{$boy->nickname}}) - {{$boy->score}}<br/>
+                            @endforeach
+                        </div>
+                        <div class="col-md-6">
+                            Girls <br/>
+                            @foreach($girls as $girl)
+                                {{$girl->title}}{{$girl->name}} {{$girl->surnanme}} ({{$girl->nickname}}) - {{$girl->score}}<br/>
+                            @endforeach
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    Code Generator
                     <form action="/home" method="post">
                         {{ csrf_field() }}
                         <select name="numbers" id="numbers">
