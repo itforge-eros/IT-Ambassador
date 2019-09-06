@@ -1,7 +1,12 @@
 <template>
     <div id="shooter">
-        <p v-if="isBothSelected">โหวต นาย{{selectedMale.name}} และ นางสาว{{selectedFemale.name}} <span class="glyphicon glyphicon-circle-arrow-right"></span></p>
-        <p v-else>กรุณาเลือกคนให้ครบ</p>
+        <p v-if="isBothSelected" class="picked">
+            โหวต นาย{{selectedMale.name}} และ นางสาว{{selectedFemale.name}}
+            <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </p>
+        <p v-else>
+            กรุณาเลือกคนให้ครบ
+        </p>
     </div>
 </template>
 <script>
@@ -23,8 +28,8 @@
     #shooter {
         cursor: pointer;
         position: fixed;
+        bottom: 0px;
         display: block;
-        bottom: 0;
         left: 0;
         width: 100%;
         background: gray;
@@ -40,5 +45,14 @@
             text-align: center;
             margin: 0;
         }
+    }
+    .glyphicon {
+        padding-bottom: 2px;
+        padding-left: 5px;
+    }
+    .picked {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
