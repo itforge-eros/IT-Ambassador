@@ -1,5 +1,11 @@
 # IT Ambassador Voting System
 
+# Server Requirements
+- PHP 7.1 or higher with extensions
+- Composer
+- MySQL 5.x
+- Node 8 with yarn for frontend build
+
 # Important Notes
 - PHP 7.1+ with Extension
 - Composer
